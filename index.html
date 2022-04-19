@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Area', '2010', '2019'],
+          ['Metro', 8.39, 8.44,],
+          ['Gentrified Tracts', 23.98, 12.15]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Percent of Households Below Poverty Line, 2010 and 2019',
+            subtitle: 'Gentrifed areas started out with very high poverty less but saw a rapid decrease compared to the metro area.',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
